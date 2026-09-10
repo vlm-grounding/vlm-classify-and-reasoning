@@ -1,0 +1,35 @@
+{
+  "keywords": {
+    "entailment": [
+      "shown",
+      "visible",
+      "matches",
+      "consistent",
+      "supports",
+      "because",
+      "same",
+      "wearing",
+      "walking"
+    ],
+    "neutral": [
+      "cannot",
+      "unclear",
+      "enough",
+      "unknown",
+      "maybe",
+      "possible",
+      "not shown",
+      "not enough"
+    ],
+    "contradiction": [
+      "instead",
+      "opposite",
+      "does not",
+      "doesn't",
+      "isn't",
+      "rather",
+      "wearing",
+      "not"
+    ]
+  }
+}

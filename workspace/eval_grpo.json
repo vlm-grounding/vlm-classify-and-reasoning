@@ -1,0 +1,22 @@
+{
+  "model_name": "Qwen/Qwen3-VL-8B-Instruct",
+  "sft_adapter": "checkpoints/mock_heads/final_adapter",
+  "sft_heads_path": "checkpoints/mock_heads/final_adapter/classification_heads.pt",
+  "sft_output_file": "results/mock_eval_sft.jsonl",
+  "lora_path": "checkpoints/mock_grpo/final_adapter",
+  "heads_path": "checkpoints/mock_grpo/final_adapter/classification_heads.pt",
+  "output_file": "results/mock_eval_grpo.jsonl",
+  "eval_manifest": "data/manifests/mock_eval.jsonl",
+  "data_root": "data",
+  "system_prompt": "workspace/system_prompt.md",
+  "category_keywords": "workspace/category_keywords.json",
+  "categories": [
+    "entailment",
+    "neutral",
+    "contradiction"
+  ],
+  "num_categories": 3,
+  "category_ignore_on_negative": false,
+  "max_new_tokens": 128,
+  "max_samples": 100
+}

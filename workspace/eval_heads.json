@@ -1,0 +1,17 @@
+{
+  "model_name": "Qwen/Qwen3-VL-8B-Instruct",
+  "lora_path": "checkpoints/mock_heads/final_adapter",
+  "eval_manifest": "data/manifests/mock_eval.jsonl",
+  "output_file": "results/mock_eval_heads.jsonl",
+  "data_root": "data",
+  "system_prompt": "workspace/system_prompt.md",
+  "categories": [
+    "entailment",
+    "neutral",
+    "contradiction"
+  ],
+  "num_categories": 3,
+  "category_ignore_on_negative": false,
+  "max_new_tokens": 128,
+  "max_samples": 100
+}

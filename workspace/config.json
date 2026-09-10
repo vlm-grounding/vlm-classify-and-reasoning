@@ -1,0 +1,107 @@
+{
+  "workplace": {
+    "name": "colab-a100",
+    "kind": "google_colab",
+    "gpu": "A100",
+    "drive_root_colab": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b",
+    "local_model": "/content/Qwen3-VL-8B-Instruct",
+    "drive_model": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/models/Qwen3-VL-8B-Instruct",
+    "heartbeat_stale_seconds": 45
+  },
+  "paths": {
+    "jobs_dir": "workspace/jobs",
+    "logs_dir": "workspace/logs",
+    "status_file": "workspace/workplace_status.json"
+  },
+  "defaults": {
+    "train": {
+      "model_name": "/content/Qwen3-VL-8B-Instruct",
+      "train_manifest": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/data/manifests/train.jsonl",
+      "eval_manifest": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/data/manifests/eval.jsonl",
+      "output_dir": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/checkpoints/qlora_r8",
+      "data_root": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/data",
+      "lora_rank": 8,
+      "batch_size": 8,
+      "grad_accum": 4,
+      "epochs": 1,
+      "learning_rate": 0.0002,
+      "save_steps": 200
+    },
+    "eval": {
+      "model_name": "/content/Qwen3-VL-8B-Instruct",
+      "lora_path": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/checkpoints/qlora_r8/final_adapter",
+      "eval_manifest": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/data/manifests/eval.jsonl",
+      "output_file": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/results/eval_predictions.jsonl",
+      "data_root": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/data",
+      "max_new_tokens": 32
+    },
+    "train_heads": {
+      "config": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/workspace/train_heads.json",
+      "model_name": "/content/Qwen3-VL-8B-Instruct",
+      "train_manifest": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/data/manifests/mock_train.jsonl",
+      "eval_manifest": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/data/manifests/mock_eval.jsonl",
+      "output_dir": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/checkpoints/mock_heads",
+      "data_root": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/data",
+      "system_prompt": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/workspace/system_prompt.md",
+      "categories": ["entailment", "neutral", "contradiction"],
+      "num_categories": 3,
+      "category_ignore_on_negative": false,
+      "lora_rank": 8,
+      "batch_size": 2,
+      "grad_accum": 4,
+      "epochs": 1,
+      "max_steps": 30,
+      "learning_rate": 0.0002,
+      "save_steps": 15,
+      "eval_steps": 15,
+      "logging_steps": 5,
+      "alpha": 1.0,
+      "beta": 1.0,
+      "gamma": 1.0,
+      "head_dropout": 0.1
+    },
+    "eval_heads": {
+      "config": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/workspace/eval_heads.json",
+      "model_name": "/content/Qwen3-VL-8B-Instruct",
+      "lora_path": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/checkpoints/mock_heads/final_adapter",
+      "eval_manifest": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/data/manifests/mock_eval.jsonl",
+      "output_file": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/results/mock_eval_heads.jsonl",
+      "data_root": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/data",
+      "system_prompt": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/workspace/system_prompt.md",
+      "categories": ["entailment", "neutral", "contradiction"],
+      "num_categories": 3,
+      "category_ignore_on_negative": false,
+      "max_new_tokens": 128,
+      "max_samples": 100
+    },
+    "train_grpo": {
+      "config": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/workspace/train_grpo.json",
+      "model_name": "/content/Qwen3-VL-8B-Instruct",
+      "sft_adapter": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/checkpoints/mock_heads/final_adapter",
+      "sft_heads_path": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/checkpoints/mock_heads/final_adapter/classification_heads.pt",
+      "train_manifest": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/data/manifests/mock_train.jsonl",
+      "eval_manifest": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/data/manifests/mock_eval.jsonl",
+      "output_dir": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/checkpoints/mock_grpo",
+      "data_root": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/data",
+      "system_prompt": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/workspace/system_prompt.md",
+      "category_keywords": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/workspace/category_keywords.json",
+      "categories": ["entailment", "neutral", "contradiction"],
+      "num_categories": 3,
+      "category_ignore_on_negative": false,
+      "max_steps": 50
+    },
+    "eval_grpo": {
+      "config": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/workspace/eval_grpo.json",
+      "model_name": "/content/Qwen3-VL-8B-Instruct",
+      "sft_adapter": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/checkpoints/mock_heads/final_adapter",
+      "sft_output_file": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/results/mock_eval_sft.jsonl",
+      "lora_path": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/checkpoints/mock_grpo/final_adapter",
+      "output_file": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/results/mock_eval_grpo.jsonl",
+      "eval_manifest": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/data/manifests/mock_eval.jsonl",
+      "data_root": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/data",
+      "system_prompt": "/content/drive/MyDrive/classify_and_reasoning_qwen3-vlm8b/workspace/system_prompt.md",
+      "max_new_tokens": 128,
+      "max_samples": 100
+    }
+  }
+}

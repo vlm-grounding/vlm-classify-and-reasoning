@@ -1,0 +1,31 @@
+{
+  "model_name": "Qwen/Qwen3-VL-8B-Instruct",
+  "train_manifest": "data/manifests/mock_train.jsonl",
+  "eval_manifest": "data/manifests/mock_eval.jsonl",
+  "output_dir": "checkpoints/mock_heads",
+  "data_root": "data",
+  "system_prompt": "workspace/system_prompt.md",
+  "categories": [
+    "entailment",
+    "neutral",
+    "contradiction"
+  ],
+  "num_categories": 3,
+  "category_ignore_on_negative": false,
+  "alpha": 0.5,
+  "beta": 0.25,
+  "gamma": 0.25,
+  "learning_rate": 0.0002,
+  "lora_rank": 8,
+  "lora_alpha": 16,
+  "lora_dropout": 0.05,
+  "head_dropout": 0.1,
+  "batch_size": 2,
+  "grad_accum": 4,
+  "epochs": 1.0,
+  "max_steps": 30,
+  "max_length": 1024,
+  "save_steps": 15,
+  "eval_steps": 15,
+  "logging_steps": 5
+}
