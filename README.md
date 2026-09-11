@@ -1,4 +1,4 @@
-# Classify and Reason with Qwen3-VL-8B
+# VLM classify and Reasoning with Qwen3-VL-8B
 
 This project is [Qwen3-VL-8B-Instruct](https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct) plus two classification heads and a language rationale with the training framework for QLoRA and GRPO with a customized reward design:
 
