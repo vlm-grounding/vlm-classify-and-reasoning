@@ -1,8 +1,6 @@
 # Classify and Reason with Qwen3-VL-8B
 
-**This is not Gated LoRA.** That method is not in this repo.
-
-This project is ordinary QLoRA on [Qwen3-VL-8B-Instruct](https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct) plus two classification heads and a language rationale:
+This project is [Qwen3-VL-8B-Instruct](https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct) plus two classification heads and a language rationale with the training framework for QLoRA and GRPO with a customized reward design:
 
 1. **Binary classification** — `no` / `yes`
 2. **Categories under the positive class** — if yes, pick one of K classes from the config
